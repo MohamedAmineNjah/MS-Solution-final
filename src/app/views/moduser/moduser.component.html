@@ -1,0 +1,319 @@
+<style>
+  .sanssautdeligne {
+    white-space: nowrap;
+  }
+</style>
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Modifier, activer et
+            désactiver<small> utilisateur(s)</small></h4>
+        </div>
+        <div class="box-header with-border">
+          <h5 class="box-title"><i class="fa fa-table"></i> Liste des utilisateurs </h5>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <tr>
+                  <th>
+
+                    Nom
+
+                  </th>
+                  <th>
+
+                    Prénom
+
+                  </th>
+
+                  <th>
+
+                    Nom d'utilisateur
+
+                  </th>
+
+                  <th>
+
+                    Organisme
+
+                  </th>
+
+
+                  <th>
+
+                    Email
+
+                  </th>
+
+                  <th>
+
+                    Téléphone
+
+                  </th>
+
+                  <th>
+
+                    <i class="fa fa-wrench"></i>
+
+                  </th>
+                  <th>
+
+                    <i class="fa fa-unlock-alt"></i>
+
+                  </th>
+
+
+                </tr>
+              </thead>
+              <tbody>
+
+
+
+
+
+
+                <tr *ngFor="let user of loadedpost">
+
+
+
+
+                  <td>
+
+                    {{user.prenom}}
+
+                  </td>
+
+
+
+
+
+                  <td>
+
+                    {{user.nom}}
+
+                  </td>
+
+
+
+
+
+                  <td>
+
+                    {{user.username}}
+                  </td>
+
+
+
+
+
+                  <td>
+
+                    {{user.organisation}}
+
+                  </td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  <td>
+
+                    {{user.email}}
+
+                  </td>
+
+
+
+
+
+                  <td>
+
+                    {{user.telephone}}
+
+                  </td>
+
+
+
+
+
+
+
+                  <td (click)="priModal.show()" (click)="onRecherche(user)" data-toggle="modal" data-target="#modifier" class="Edit"
+                    style="color:green;cursor:pointer"><i class="fa fa-wrench"></i></td>
+
+
+
+
+                  <td (click)="primaryModal.show()" (click)="onRecherche(user)" class="Delete" style="color:red;cursor:pointer" data-toggle="modal"
+                    data-target="#supprimer"><i class="fa fa-unlock"></i></td>
+
+
+
+                </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <!-- <div class="container">
+        <table class="table table-striped">
+          <thead>
+              <tr>
+                <th>Actor Name</th>
+                <th>Character Name</th>
+                <th>Gender</th>
+                <th>Status</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let character of loadedpost">
+              <td>{{ character.email }}</td>
+              <td>{{ character.nom }}</td>
+              <td>{{ character.telephone }}</td>
+              <td>{{ character.password }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+ -->
+
+
+
+
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div bsModal #priModal="bs-modal" class="modal fade" id="modifier" role="dialog" tabindex="-1"
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-primary">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Merci de remplir tous les champs</h4>
+        <button type="button" class="close" data-dismiss="modal" (click)="priModal.hide()" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+      </div>
+      <form (ngSubmit)="modifieruser()" method="post">
+        <!-- Modal body -->
+        <div class="modal-body">
+
+
+
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="text-input"><b>Nom *</b></label>
+            <div class="col-md-5">
+              <input type="text" name="firstName" class="form-control" [(ngModel)]="firstName">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="text-input"><b>Prénom *</b></label>
+            <div class="col-md-5">
+              <input type="text" name="lastName" class="form-control" [(ngModel)]="lastName">
+            </div>
+          </div>
+
+
+
+
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-dismiss="modal"  (click)="priModal.hide()" type="submit">Modifier</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<div bsModal #primaryModal="bs-modal" class="modal fade" id="supprimer" role="dialog" tabindex="-1"
+  aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Vous voulez désactiver cet utilisateur ?</h4>
+        <button type="button" class="close" data-dismiss="modal" (click)="primaryModal.hide()"><span
+            aria-hidden="true">&times;</span></button>
+      </div>
+
+
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" (click)="deletePost()" (click)="primaryModal.hide()" class="btn btn-secondary"
+          data-dismiss="modal">Oui</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="primaryModal.hide()">Non</button>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+</div>

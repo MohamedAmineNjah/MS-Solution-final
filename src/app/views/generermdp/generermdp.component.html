@@ -1,0 +1,166 @@
+<style>
+  .sanssautdeligne {
+    white-space: nowrap;
+  }
+</style>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="box-header with-border">
+          <h3 class="box-title"><i class="fa fa-table"></i> Liste des terminaux </h3>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <p style="white-space: nowrap;">
+              <span>Afficher </span>
+              <span><select class="form-control input-sm">
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                </select>
+              </span>
+              <span>éléments</span></p>
+          </div>
+
+          <div class="col-md-4 ml-auto">.
+            <p style="white-space: nowrap;">
+              <span> Rechercher : </span> <span> <input type="search" class="form-control input-sm"
+                  placeholder=""></span>
+            </p>
+          </div>
+        </div>
+        <br>
+        <br>
+        <table class="table table-bordered table-striped mb-none">
+
+          <tbody>
+            <tr class="gradeA">
+              <th colspan="1">Numéro de série (format XXX-XXX-XXX)</th>
+              <th colspan="1">Date debut (sous format DD/MM/YYYY HH:mm) </th>
+              <th colspan="1">Date fin (sous format DD/MM/YYYY HH:mm) </th>
+              <th> <i class="fa fa-wrench"> </i></th>
+              <th> <i class="fa fa-trash-o"> </i></th>
+            </tr>
+
+            <tr>
+              <td>v</td>
+              <td>adazdazdza</td>
+              <td>rtrtb</td>
+              <td class="Edit" style="color:green;cursor:pointer" data-toggle="modal" data-target="#modifier"><i
+                  class="fa fa-wrench tooltips"></i></td>
+              <td class="Delete" style="color:red;cursor:pointer" data-toggle="modal" data-target="#supprimer"><i
+                  class="fa fa-trash-o tooltips"></i></td> 
+            </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#ajouter">Ajouter un log </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="ajouter" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Ajouter un nouveau logTerminal</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="form-group">
+          <label> <strong> Date debut :</strong></label>
+          <input type="date" id="idCand" class="form-control">
+        </div>
+        <div class="form-group">
+          <label> <strong>Date fin </strong> :</label>
+          <input type="date" id="nomCand" class="form-control">
+        </div>
+        <div class="form-group">
+          <label> <strong> Heure debut:</strong></label>
+          <input type="date" id="idCand" class="form-control">
+        </div>
+        <div class="form-group">
+          <label> <strong>Heure fin </strong> :</label>
+          <input type="date" id="nomCand" class="form-control">
+        </div>
+        <div class="form-group">
+          <label> <strong>Numero de série </strong> :</label>
+          <input type="number" id="nomCand" class="form-control">
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" (click)="onAjouter()" class="btn btn-info" data-dismiss="modal">Ajouter</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modifier" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modifier TPE</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="form-group">
+          <label> <strong> Numéro_Série :</strong></label>
+          <input type="text" id="idCand" class="form-control">
+        </div>
+        <div class="form-group">
+          <label> <strong>DateDebut </strong> :</label>
+          <input type="date" id="nomCand" class="form-control">
+        </div>
+        <div class="form-group">
+          <label> <strong> DateFin :</strong> </label>
+          <input type="date" id="prenomCand" class="form-control">
+        </div>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-warning btn-rounded">
+          Modifier <i class="fa fa-wrench"></i>
+      </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="supprimer">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Êtes-vous sûr de vouloir supprimer définitivement cette trace ?</h4>
+        <button type="button" class="close" data-dismiss="modal"></button>
+      </div>
+
+
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" (click)="onSupprimer(selectedCandi)" class="btn btn-secondary"
+          data-dismiss="modal">Supprimer</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,154 @@
+<style>
+  .sanssautdeligne {
+    white-space: nowrap;
+  }
+</style>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="box-header with-border">
+          <h3 class="box-title"><i class="fa fa-table"></i> Liste des banques </h3>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <p style="white-space: nowrap;">
+              <span>Afficher </span>
+              <span><select class="form-control input-sm">
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                </select>
+              </span>
+              <span>éléments</span></p>
+          </div>
+
+          <div class="col-md-4 ml-auto">.
+            <p style="white-space: nowrap;">
+              <span> Rechercher : </span> <span> <input type="search" class="form-control input-sm"
+                  placeholder=""></span>
+            </p>
+          </div>
+        </div>
+        <br>
+        <br>
+        <table class="table table-bordered table-striped mb-none">
+
+          <tbody>
+            <tr class="gradeA">
+              <th colspan="1">Banque</th>
+              <th colspan="1">Code </th>
+              <th colspan="1">Nombre de TPE Total</th>
+              <th colspan="1">Nombre de TPE Activé </th>
+              <th colspan="1">Nombre de TPE Déactivé(s)</th>
+              <th colspan="1">Nombre de Groupes Affecté(s)</th>
+              <th> <i class="fa fa-wrench"> </i></th>
+              <th> <i class="fa fa-unlock-alt"> </i></th>
+            </tr>
+
+            <tr>
+              <td>v</td>
+              <td>adazdazdza</td>
+              <td>rtrtb</td>
+              <td>bytyn</td>
+              <td>bytyn</td>
+              <td>bytyn</td>
+              <td class="Edit" style="color:red;cursor:pointer" data-toggle="modal" data-target="#modifier"><i
+                  class="fa fa-wrench"></i></td>
+              <td class="Delete" style="color:green;cursor:pointer" data-toggle="modal" data-target="#supprimer"><i
+                  class="fa fa-unlock"></i></td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#ajouter">Ajouter une nouvelle banque </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="ajouter" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Ajouter une nouvelle banque</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="form-group">
+          <label> <strong> Nom de la banque :</strong></label>
+          <input type="text" id="idCand" class="form-control">
+        </div>
+        <div class="form-group">
+          <label> <strong>code </strong> :</label>
+          <input type="number" id="nomCand" class="form-control">
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" (click)="onAjouter()" class="btn btn-info" data-dismiss="modal">Ajouter</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="modifier" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modifier banque</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="form-group">
+          <label> <strong> Nom de la banque :</strong></label>
+          <input type="text" id="idCand" class="form-control">
+        </div>
+        <div class="form-group">
+          <label> <strong>code </strong> :</label>
+          <input type="number" id="nomCand" class="form-control">
+        </div>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" (click)="onAjouter()" class="btn btn-info" data-dismiss="modal">Modifier</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="supprimer">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title"> Veuillez tout d'abord supprimer les groupes affectées à cette banque?</h4>
+        <button type="button" class="close" data-dismiss="modal"></button>
+      </div>
+
+
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" (click)="onSupprimer(selectedCandi)" class="btn btn-secondary"
+          data-dismiss="modal">Oui</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+      </div>
+
+    </div>
+  </div>
+</div>

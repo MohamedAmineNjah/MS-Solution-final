@@ -1,0 +1,121 @@
+<div class="box box-default color-palette-box">
+  <section class="content-header">
+    <h1>
+      Ajouter
+      <small> nouvel utilisateur</small>
+    </h1>
+  </section>
+</div>
+<div class="col-md-15">
+  <div class="card">
+    <div class="card-header">
+      <strong>
+        <div class="box-header with-border">
+          <h3 class="box-title"><i class="fa fa-wrench"></i> Paramètres à entrer </h3>
+        </div>
+      </strong>
+    </div>
+
+
+
+
+
+
+    <div class="card-body">
+       <form (ngSubmit)="createPost()"  method="post" >
+         
+
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="select1"><b>Organisme *</b></label>
+          <div class="col-md-5">
+            <select [(ngModel)]="organisation_id"  name="organisation_id" class="form-control">
+              <option value="1">BankTest</option>
+              <option value="2">BqCodetst</option>
+              <option value="3">ETHMAR</option>
+              <option value="4">GrpGrp</option>
+              <option value="5">SATIM</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" ><b>Role *</b></label>
+          <div class="col-md-5">
+            <select [(ngModel)]="roleUser"  name="roleUser" class="form-control">
+              <option value="Agent Bank">Agent Bank</option>
+              <option value="admin Bank">admin Bank</option>
+              <option value="prestataire">prestataire</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="text-input"><b>Prénom *</b></label>
+          <div class="col-md-5">
+            <input type="text" name="nom" class="form-control" [(ngModel)]="nom">
+          </div>
+        </div>
+
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="text-input"><b>Nom *</b></label>
+          <div class="col-md-5">
+            <input type="text"  name="prenom" class="form-control" [(ngModel)]="prenom">
+          </div>
+        </div>
+
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="text-input"><b>Nom d'utilisateur *</b></label>
+          <div class="col-md-5">
+            <input type="text"  name="username" class="form-control" placeholder="6 caractères minimum"
+              [(ngModel)]="username">
+          </div>
+          <div style="cursor:pointer" class="fa fa-cogs fa-2x" id="generate"></div>
+        </div>
+
+
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="text-input"><b>Téléphone *</b></label>
+          <div class="col-md-5">
+            <input type="text" name="telephone" class="form-control" placeholder="exemple 01555888"
+              [(ngModel)]="telephone">
+          </div>
+        </div>
+
+
+
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="email-input"><b>Email *</b></label>
+          <div class="col-md-5">
+            <input type="email"  name="email" class="form-control" placeholder="Enter Email"
+              [(ngModel)]="email">
+
+
+           
+          <!--  <ul class="list-group">
+              <li *ngFor="let post of posts" class="list-group-item">
+
+                {{post.nom}}
+              </li>
+
+            </ul> -->
+
+
+
+
+
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+
+      </form> 
+    </div>
+    <div class="card-footer">
+      
+    </div>
+  </div>

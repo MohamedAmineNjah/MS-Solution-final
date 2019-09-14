@@ -1,0 +1,189 @@
+<style>
+  .sanssautdeligne {
+    white-space: nowrap;
+  }
+</style>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="box-header with-border">
+          <h3 class="box-title"><i class="fa fa-table"></i> Liste des TPE </h3>
+        </div>
+        <div class="row">
+          <div class="col order-last">
+            <p style="white-space: nowrap;">
+              <span> Rechercher : </span> <span> <input type="search" class="form-control input-sm"
+                  placeholder=""></span>
+            </p>
+          </div>
+          <div class="col">
+            <button class="btn btn-danger"> Column visibility</button>
+          </div>
+          <div class="col order-first">
+            <p style="white-space: nowrap;">
+              <span>Afficher </span>
+              <span><select class="form-control input-sm">
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                </select>
+              </span>
+              <span>éléments</span></p>
+          </div>
+        </div>
+        <br>
+        <br>
+        <table class="table table-bordered table-striped mb-none">
+
+          <tbody>
+            <tr class="gradeA">
+              <th colspan="1">Modèle</th>
+              <th colspan="1">Num série du terminal </th>
+              <th colspan="1">Status </th>
+              <th colspan="1">Date d'enregistrement </th>
+              <th colspan="1">Dernière connexion</th>
+              <th colspan="1">Banque</th>
+              <th colspan="1">Banque(terminal) </th>
+              <th colspan="1">Id Terminal </th>
+              <th colspan="1">Carte administrative </th>
+              <th colspan="1">Nom du commercant </th>
+            </tr>
+
+            <tr>
+              <td>v</td>
+              <td>adazdazdza</td>
+              <td>rtrtb</td>
+              <td>bytyn</td>
+              <td>bytyn</td>
+              <td>bytyn</td>
+              <td>bytyn</td>
+              <td>bytyn</td>
+              <td>bytyn</td>
+              <td>bytyn</td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" class="btn btn-success">Copy</button>
+        <button type="button" class="btn btn-danger">PDF</button>
+        <button type="button" class="btn btn-warning"> <i class="fa fa-file-pdf-o"> </i> Excel</button>
+        <button type="button" class="btn btn-info">CSV</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="modifier" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Merci de remplir tous les champs</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="form-group">
+          <label> <strong> Prénom :</strong></label>
+          <input type="text" id="idCand" class="form-control">
+        </div>
+        <div class="form-group">
+          <label> <strong>Nom </strong> :</label>
+          <input type="text" id="nomCand" class="form-control">
+        </div>
+        <div class="form-group">
+          <label> <strong> Nom d'utilisateur :</strong> </label>
+          <input type="text" id="prenomCand" class="form-control">
+        </div>
+        <div class="form-group">
+          <label> <strong>Telephone : </strong> </label>
+          <input type="tel" id="email-input" name="email-input" class="form-control" placeholder="">
+        </div>
+        <div class="form-group">
+          <label><strong>Organisme : </strong></label>
+
+          <select id="select1" name="select1" class="form-control">
+            <option value="0">BankTest</option>
+            <option value="1">BqCodetst</option>
+            <option value="2">ETHMAR</option>
+            <option value="3">GrpGrp</option>
+            <option value="3">SATIM</option>
+            <option value="3">Test3</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label><strong> Role :</strong></label>
+          <select id="select1" name="select1" class="form-control">
+            <option value="0">Agent Bank</option>
+            <option value="1">Admin Bank</option>
+            <option value="2">prestataire</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label><strong>Email : </strong></label>
+          <input type="email" id="email-input" name="email-input" class="form-control" placeholder="">
+        </div>
+        <div class="form-group">
+          <label><strong>Changer password : </strong> </label>
+          <input type="password" id="email-input" name="email-input" class="form-control" placeholder="">
+        </div>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" (click)="onAjouter()" class="btn btn-info" data-dismiss="modal">Modifier</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="supprimer">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Vous voulez desactiver ce groupe ?</h4>
+        <button type="button" class="close" data-dismiss="modal"></button>
+      </div>
+
+
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" (click)="onSupprimer(selectedCandi)" class="btn btn-secondary"
+          data-dismiss="modal">Oui</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ajouter">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Vous voulez desactiver ce groupe ?</h4>
+        <button type="button" class="close" data-dismiss="modal"></button>
+      </div>
+
+
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" (click)="onSupprimer(selectedCandi)" class="btn btn-secondary"
+          data-dismiss="modal">Oui</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+      </div>
+
+    </div>
+  </div>
+</div>

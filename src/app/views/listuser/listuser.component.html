@@ -1,0 +1,198 @@
+<style>
+  .sanssautdeligne {
+    white-space: nowrap;
+  }
+</style>
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Affichage d'une liste d'utilisateur(s)</h4>
+        </div>
+        <div class="box-header with-border">
+          <h5 class="box-title"><i class="fa fa-table"></i> Liste des utilisateurs </h5>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <tr>
+                  <th>
+
+                    Nom
+
+                  </th>
+                  <th>
+
+                    Prénom
+
+                  </th>
+
+                  <th>
+
+                    Nom d'utilisateur
+
+                  </th>
+
+                  <th>
+
+                    Organisme
+
+                  </th>
+
+
+                  <th>
+
+                    Email
+
+                  </th>
+
+                  <th>
+
+                    Téléphone
+
+                  </th>
+
+                 
+
+                </tr>
+              </thead>
+              <tbody>
+
+
+
+
+
+
+                <tr *ngFor="let user of loadedpost">
+
+
+
+
+                  <td>
+
+                    {{user.prenom}}
+
+                  </td>
+
+
+
+
+
+                  <td>
+
+                    {{user.nom}}
+
+                  </td>
+
+
+
+
+
+                  <td>
+
+                    {{user.username}}
+                  </td>
+
+
+
+
+
+                  <td>
+
+                    {{user.organisation}}
+
+                  </td>
+
+
+
+                  <td>
+
+                    {{user.email}}
+
+                  </td>
+
+
+
+
+
+                  <td>
+
+                    {{user.telephone}}
+
+                  </td>
+
+
+
+
+
+
+
+                </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <!-- <div class="container">
+          <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th>Actor Name</th>
+                  <th>Character Name</th>
+                  <th>Gender</th>
+                  <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let character of loadedpost">
+                <td>{{ character.email }}</td>
+                <td>{{ character.nom }}</td>
+                <td>{{ character.telephone }}</td>
+                <td>{{ character.password }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+   -->
+
+
+
+
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
